@@ -13,14 +13,15 @@ module.exports = {
       network_id:"1337",
       host:"127.0.0.1"
       
-    }
+    },
+    ganache_local: {
+      provider: function() {
+          return new HDWalletProvider(process.env.MNEMONIC, "http://127.0.0.1:7545", MetaMaskAccountIndex )
+      },
+      network_id: 1337
+      }
   },
-  ganache_local: {
-    provider: function() {
-        return new HDWalletProvider(process.env.MNEMONIC, "http://127.0.0.1:7545", MetaMaskAccountIndex )
-    },
-    network_id: 1337
-    },
+  
   compilers:{
     solc:{
       version: "^0.8.4",
